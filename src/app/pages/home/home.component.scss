@@ -1,0 +1,14 @@
+.image {
+  position: relative;
+  width: 100%; /* for IE 6 */
+}
+
+.floating-content {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  .center-button {
+    color: white;
+    border-radius: 6%;
+  }
+}

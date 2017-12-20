@@ -1,0 +1,53 @@
+<mat-card class="main-card">
+
+  <td-steps mode="horizontal">
+
+    <td-step #step1 label="Նույնականացման տվյալներ" sublabel="Տեղեկություն Ձեր մասին" active="true">
+
+      <app-personal [form]="form.controls['personal']"></app-personal>
+
+      <ng-template td-step-actions>
+        <button mat-raised-button color="primary" (click)="step2.active = true" class="text-upper"
+                fxLayoutAlign="space-between center" [disabled]="form.controls['personal'].invalid">Հաջորդ</button>
+      </ng-template>
+    </td-step>
+
+    <td-step #step2 label="Մուտքային տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ" [state]="stateStep2"
+             [disabled]="form.controls['personal'].invalid" disableRipple>
+
+      <app-auth [form]="form.controls['auth']"></app-auth>
+
+      <ng-template td-step-actions>
+        <button mat-raised-button color="primary" (click)="step3.active = true" class="text-upper">Հաջորդ</button>
+        <button mat-button (click)="step1.active = true" class="text-upper">Հետ</button>
+      </ng-template>
+    </td-step>
+
+    <td-step #step3 label="Լրացուցիչ տվյալներ" sublabel="Պարտադիր չեն լրացման համար" [state]="stateStep3" [disabled]="disabled">
+      Mark this step complete and get a summary
+      <ng-template td-step-summary>
+        Use an optional step summary to summarize the info in this step
+      </ng-template>
+      <ng-template td-step-actions>
+        <button mat-raised-button color="primary" (click)="toggleCompleteStep3()" class="text-upper">Toggle Complete</button>
+        <button mat-button (click)="step3.active = false" class="text-upper">Cancel</button>
+      </ng-template>
+    </td-step>
+
+    <td-step #step1 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները">
+      Include any content you like for an active stepper
+      <ng-template td-step-actions>
+        <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
+      </ng-template>
+    </td-step>
+
+    <td-step #step1 label="Պայմաններ">
+      Include any content you like for an active stepper
+      <ng-template td-step-actions>
+        <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
+      </ng-template>
+    </td-step>
+
+  </td-steps>
+
+</mat-card>

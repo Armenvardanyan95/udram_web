@@ -1,0 +1,38 @@
+<mat-form-field>
+  <input matInput placeholder="Էլեկտրոնային փոստի հասցե" #email [formControl]="form.controls['email']"
+         [errorStateMatcher]="matcher" maxlength="256">
+
+  <mat-hint align="end">{{email.value.length}} / 256</mat-hint>
+
+  <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
+    Խնդրում ենք մուտքագրել ճիշտ հասցե
+  </mat-error>
+  <mat-error *ngIf="form.controls['email'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput type="password" placeholder="Գաղտնաբառ" #password [formControl]="form.controls['password']"
+         [errorStateMatcher]="matcher" maxlength="20">
+
+  <mat-hint align="end">{{password.value.length}} / 20</mat-hint>
+
+  <mat-error *ngIf="form.controls['password'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput type="password" placeholder="Կրկնեք Գաղտնաբառը" #confirmPassword [formControl]="form.controls['confirmPassword']"
+         [errorStateMatcher]="matcher" maxlength="20">
+
+  <mat-hint align="end">{{confirmPassword.value.length}} / 20</mat-hint>
+
+  <mat-error *ngIf="form.controls['confirmPassword'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>

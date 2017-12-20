@@ -1,0 +1,48 @@
+<mat-form-field>
+  <input matInput placeholder="Անուն" #firstName [formControl]="form.controls['firstName']"
+         [errorStateMatcher]="matcher" maxlength="50">
+
+  <mat-hint align="end">{{firstName.value.length}} / 50</mat-hint>
+
+  <mat-error *ngIf="form.controls['firstName'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Ազգանուն" #lastName [formControl]="form.controls['lastName']"
+         [errorStateMatcher]="matcher" maxlength="50">
+
+  <mat-hint align="end">{{lastName.value.length}} / 50</mat-hint>
+
+  <mat-error *ngIf="form.controls['lastName'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Ծննդյան ամսաթիվ"
+         [formControl]="form.controls['dateOfBirth']">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Սոցիալական քարտի համար" #ssn [formControl]="form.controls['ssn']"
+         [errorStateMatcher]="matcher" maxlength="10">
+
+  <mat-hint align="end">{{ssn.value.length}} / 10</mat-hint>
+
+  <mat-error *ngIf="form.controls['ssn'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-radio-group [formControl]="form.controls['gender']">
+  Սեռ
+  <mat-radio-button value="1" checked="true">Արական</mat-radio-button>
+  <mat-radio-button value="2">Իգական</mat-radio-button>
+</mat-radio-group>

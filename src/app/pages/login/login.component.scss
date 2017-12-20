@@ -1,0 +1,23 @@
+.login-card {
+  background-color: white;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 10px;
+  mat-card-title {
+    margin-right: auto;
+    text-align: center;
+  }
+  .form-container {
+    text-align: center;
+     mat-form-field {
+       width: 60%;
+     }
+  }
+  mat-card-actions {
+    button {
+      margin-bottom: 5px;
+    }
+  }
+}
