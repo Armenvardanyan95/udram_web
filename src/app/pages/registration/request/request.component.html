@@ -1,0 +1,28 @@
+<mat-form-field>
+  <input matInput type="number" placeholder="Հեռախոսահամար" #mobilePhone [formControl]="form.controls['mobilePhone']"
+         [errorStateMatcher]="matcher" maxlength="50">
+
+  <mat-hint align="end">{{mobilePhone.value.length}} / 50</mat-hint>
+
+  <mat-error *ngIf="form.controls['mobilePhone'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput placeholder="Վարկի ցանկալի գումար" type="number" #amount [formControl]="form.controls['amount']"
+         [errorStateMatcher]="matcher" maxlength="50">
+
+  <mat-hint align="end">{{amount.value.length}} / 50</mat-hint>
+
+  <mat-error *ngIf="form.controls['amount'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+</mat-form-field>
+
+<mat-form-field>
+  <textarea matInput placeholder="Նկարագրեք Ձեր վարկային պատմությունը" matTextareaAutosize matAutosizeMinRows="10"
+            matAutosizeMaxRows="10" [formControl]="form.controls['description']"></textarea>
+</mat-form-field>

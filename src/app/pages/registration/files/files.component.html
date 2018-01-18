@@ -1,0 +1,33 @@
+<div class="files-component">
+
+  <p>Եթե գրանցված եք <a href="https://www.acra.am/" target="_blank">ԱՔՐԱ</a> համակարգում, ապա ներբեռնեք Ձեր զեկուցագիրը այնտեղից (դա զգալիորեն կարագացնի գործընթացը)</p>
+
+  <p>Եթե գրանցված չեք ԱՔՐԱ համակարգում, բայց ցանկանում եք արագացնել գործընթացը, մեր աշխատակիցը կարող է Ձեզ գրանցել այնտեղ՝ Ձեր կողմից նշված Էլ․փոստով։
+    Դրա համար ներբեռնեք Ձեր անձնագրի պատճեն։ Դուք կստանաք ԱՔՐԱ-ի Ձեր նոր գաղտնաբաոը Ձեր կողմից նշված Էլ․փոստին</p>
+
+  <p>Եթե չեք ցանկանում գրանցվել ԱՔՐԱ համակարգում, ապա ուղղակի անցեք հաջորդ քայլին</p>
+
+  <div class="file-upload-container">
+    <td-file-upload #passport [(ngModel)]="files.passport" color="accent">
+      <mat-icon>file_upload</mat-icon><span>{{ passport.value?.name }}</span>
+      <ng-template td-file-input-label>
+        <mat-icon>attach_file</mat-icon>
+        <span>
+          Անձնագրի պատճեն
+        </span>
+      </ng-template>
+    </td-file-upload>
+  </div>
+
+  <div>
+    <td-file-upload #acra [(ngModel)]="files.acra" color="accent">
+      <mat-icon>file_upload</mat-icon><span>{{ acra.value?.name }}</span>
+      <ng-template td-file-input-label>
+        <mat-icon>attach_file</mat-icon>
+        <span>
+          ԱՔՐԱ համակարգի զեկուցագիրը
+        </span>
+      </ng-template>
+    </td-file-upload>
+  </div>
+</div>

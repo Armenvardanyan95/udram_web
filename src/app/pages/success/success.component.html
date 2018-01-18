@@ -1,0 +1,17 @@
+<div class="success_page">
+
+  <mat-card class="success-card">
+
+    <img src="../../../assets/images/success.png" width="50%" height="50%">
+
+    <mat-card-content>
+      <p> {{ store.successMessage | async }} </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button mat-ripple color="accent" [routerLink]="['/']">Վերադառնալ Գլխավոր էջ</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

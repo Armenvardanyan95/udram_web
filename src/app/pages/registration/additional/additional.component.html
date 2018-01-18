@@ -1,0 +1,28 @@
+<mat-form-field>
+  <mat-select placeholder="Մարզ" [formControl]="form.controls['province']" [(ngModel)]="province">
+    <mat-option *ngFor="let province of provinces" [value]="province.id">
+      {{ province.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput #city placeholder="Քաղաք / Գյուղ" [formControl]="form.controls['city']" maxlength="50">
+
+  <mat-hint align="end">{{city.value.length}} / 50</mat-hint>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput #address placeholder="Հասցե" [formControl]="form.controls['address']" maxlength="100">
+
+  <mat-hint align="end">{{address.value.length}} / 100</mat-hint>
+
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput #other placeholder="Այլ" [formControl]="form.controls['other']" maxlength="100">
+
+  <mat-hint align="end">{{other.value.length}} / 100</mat-hint>
+
+</mat-form-field>

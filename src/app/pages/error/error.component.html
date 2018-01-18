@@ -1,0 +1,17 @@
+<div class="error_page">
+
+  <mat-card class="error-card">
+
+    <img src="../../../assets/images/error.png" width="50%" height="50%">
+
+    <mat-card-content>
+      <p> {{ store.errorMessage | async }} </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button mat-ripple color="accent" [routerLink]="['/']">Վերադառնալ Գլխավոր էջ</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>

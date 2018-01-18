@@ -1,0 +1,35 @@
+<div class="profile_page">
+
+  <td-message [label]="status[user.request.status].text" [color]="'purple'"
+              [icon]="status[user.request.status].icon" class="profile-status"></td-message>
+
+  <mat-card class="profile-card">
+
+    <mat-card-title>Անձնական տվյալներ</mat-card-title>
+    <mat-card-subtitle>Կարող եք խմբագրել, եթե թույլ եք տվել սխալներ կամ անհրաժեշտ է թարմացնել</mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="form-block">
+        <app-personal [form]="form.controls['personal']"></app-personal>
+      </div>
+
+      <div class="form-block">
+        <app-identification [form]="form.controls['identification']" (typeOfIdentificationChanged)="onIdentificationTypeChange($event)"></app-identification>
+      </div>
+
+      <div class="form-block">
+        <app-additional [form]="form.controls['additional']"></app-additional>
+      </div>
+
+      <div class="form-block">
+        <app-request [form]="form.controls['request']"></app-request>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-ripple mat-raised-button color="primary" (click)="onSubmit()">Թարմացնել</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
