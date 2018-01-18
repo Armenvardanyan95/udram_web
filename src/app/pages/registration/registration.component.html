@@ -1,53 +1,87 @@
-<mat-card class="main-card">
+<div class="registration_page">
 
-  <td-steps mode="horizontal">
+  <mat-card class="main-card">
 
-    <td-step #step1 label="Նույնականացման տվյալներ" sublabel="Տեղեկություն Ձեր մասին" active="true">
+    <td-steps [mode]="smallScreen ? 'vertical': 'horizontal'">
 
-      <app-personal [form]="form.controls['personal']"></app-personal>
+      <td-step #step1 label="Անձնական տվյալներ" sublabel="Տեղեկություն Ձեր մասին" active="true">
 
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" (click)="step2.active = true" class="text-upper"
-                fxLayoutAlign="space-between center" [disabled]="form.controls['personal'].invalid">Հաջորդ</button>
-      </ng-template>
-    </td-step>
+        <app-personal [form]="form.controls['personal']"></app-personal>
 
-    <td-step #step2 label="Մուտքային տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ" [state]="stateStep2"
-             [disabled]="form.controls['personal'].invalid" disableRipple>
+        <ng-template td-step-actions>
+          <button mat-raised-button color="accent" (click)="step2.active = true" class="action-button"
+                  fxLayoutAlign="space-between left" [disabled]="form.controls['personal'].invalid">
+            Հաջորդ <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </ng-template>
+      </td-step>
 
-      <app-auth [form]="form.controls['auth']"></app-auth>
+      <td-step #step2 label="Նույնականացման տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ"
+               [disabled]="form.controls['personal'].invalid" disableRipple>
 
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" (click)="step3.active = true" class="text-upper">Հաջորդ</button>
-        <button mat-button (click)="step1.active = true" class="text-upper">Հետ</button>
-      </ng-template>
-    </td-step>
+        <app-identification [form]="form.controls['identification']" (typeOfIdentificationChanged)="onIdentificationTypeChange($event)"></app-identification>
 
-    <td-step #step3 label="Լրացուցիչ տվյալներ" sublabel="Պարտադիր չեն լրացման համար" [state]="stateStep3" [disabled]="disabled">
-      Mark this step complete and get a summary
-      <ng-template td-step-summary>
-        Use an optional step summary to summarize the info in this step
-      </ng-template>
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" (click)="toggleCompleteStep3()" class="text-upper">Toggle Complete</button>
-        <button mat-button (click)="step3.active = false" class="text-upper">Cancel</button>
-      </ng-template>
-    </td-step>
+        <ng-template td-step-actions>
+          <button mat-button (click)="step1.active = true" class="text-upper">Հետ</button>
+          <button mat-raised-button color="accent" (click)="step3.active = true"
+                  class="text-upper" [disabled]="form.controls['personal'].invalid">Հաջորդ</button>
+        </ng-template>
+      </td-step>
 
-    <td-step #step1 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները">
-      Include any content you like for an active stepper
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
-      </ng-template>
-    </td-step>
+      <td-step #step3 label="Մուտքային տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ">
+               <!--[disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid" disableRipple>-->
 
-    <td-step #step1 label="Պայմաններ">
-      Include any content you like for an active stepper
-      <ng-template td-step-actions>
-        <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
-      </ng-template>
-    </td-step>
+        <app-auth [form]="form.controls['auth']"></app-auth>
 
-  </td-steps>
+        <ng-template td-step-actions>
+          <button mat-button (click)="step2.active = true" class="text-upper">Հետ</button>
+          <button mat-raised-button color="accent" (click)="step4.active = true"
+                  class="text-upper" [disabled]="form.controls['auth'].invalid">Հաջորդ</button>
+        </ng-template>
+      </td-step>
 
-</mat-card>
+      <td-step #step4 label="Լրացուցիչ տվյալներ" sublabel="Պարտադիր չեն լրացման համար"
+               [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
+
+        <app-additional [form]="form.controls['additional']"></app-additional>
+
+        <ng-template td-step-actions>
+          <button mat-button (click)="step3.active = false" class="text-upper">Հետ</button>
+          <button mat-raised-button color="accent" (click)="step5.active = true" class="text-upper">Հաջորդ</button>
+        </ng-template>
+      </td-step>
+
+      <td-step #step5 label="Հայտ" sublabel="Ձեզ անհրաժեշտ ծառայությունները"
+               [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
+
+        <app-request [form]="form.controls['request']"></app-request>
+
+        <ng-template td-step-actions>
+          <button mat-button (click)="step4.active = false" class="text-upper">Հետ</button>
+          <button mat-raised-button color="accent" (click)="step6.active = true" class="text-upper">Հաջորդ</button>
+        </ng-template>
+      </td-step>
+
+      <td-step #step6 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները" [disabled]="">
+        <app-files [files]="files"></app-files>
+        <ng-template td-step-actions>
+          <button mat-raised-button color="accent" (click)="step7.active = true" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
+        </ng-template>
+      </td-step>
+
+      <td-step #step7 label="Պայմաններ"
+               [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
+
+        <app-terms [hasAgreedToTerms]="form.controls['hasAgreedToTerms']"></app-terms>
+
+        <ng-template td-step-actions>
+          <button mat-raised-button color="accent" (click)="onSubmit()" class="text-upper"
+                  fxLayoutAlign="space-between center" [disabled]="form.controls['hasAgreedToTerms'].invalid">Հաջորդ</button>
+        </ng-template>
+      </td-step>
+
+    </td-steps>
+
+  </mat-card>
+
+</div>

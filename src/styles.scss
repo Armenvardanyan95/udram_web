@@ -1,6 +1,12 @@
 @import '~@angular/material/theming';
 @import '~@covalent/core/theming/all-theme';
 
+
+@font-face {
+  font-family: "Armenian Garamond";
+  src: url(assets/fonts/Sylfaen.ttf);
+}
+
 // Define a custom typography config that overrides the font-family
 
 $typography: mat-typography-config(
@@ -9,6 +15,39 @@ $typography: mat-typography-config(
 );
 
 @include mat-core($typography); // $typography is an **optional** argument for the mat-core
+
+$mat-blue-grey: (
+  50: #191919,
+  100: #191919,
+  200: #191919,
+  300: #191919,
+  400: #191919,
+  500: #191919,
+  600: #191919,
+  700: #191919,
+  800: #191919,
+  900: #191919,
+  A100: #191919,
+  A200: #191919,
+  A400: #191919,
+  A700: #191919,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: white,
+    A700: $white-87-opacity,
+  )
+);
 
 $primary: mat-palette($mat-blue-grey, 800, 100, 900);
 $accent:  mat-palette($mat-orange, 600, 100, 900);

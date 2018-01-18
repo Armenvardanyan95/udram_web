@@ -1,10 +1,187 @@
 <div class="image">
 
-  <img src="../../../assets/images/main.jpg"/>
+  <div class="floating-text">
+    <h1>UDram վարկային միջնորդ</h1>
+    <span>Կօգնենք Ձեզ ստանալ վարկ</span>
+  </div>
 
   <div class="floating-content">
-    <button mat-raised-button color="accent" class="center-button">Անել ինչ որ բան</button>
+    <button mat-raised-button color="accent" class="center-button"
+            [routerLink]="isAuth ? ['/profile'] : ['/registration']">
+      {{ isAuth ? 'Դիտել հայտը' : 'Թողնել հայտ' }}
+    </button>
   </div>
 
 </div>
+
+<div>
+
+  <div class="centered-info">
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/shield.png"/>
+        <span>Տվյալների անվտանգություն</span>
+      </div>
+    </div>
+
+    <div class="information-block">
+      <div class="info-content">
+        <div class="img-container">
+          <img src="../../../assets/images/fast.png"/>
+        </div>
+        <span>Արագ սպասարկում</span>
+      </div>
+    </div>
+
+
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/price.png"/>
+        <span>Մատչելի պայմաններ</span>
+      </div>
+    </div>
+
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/advice.png"/>
+        <span>Լավագույն խորհդատվություն</span>
+      </div>
+    </div>
+
+    <div class="information-block info-block-end">
+      <div class="info-content">
+        <img src="../../../assets/images/cap.png"/>
+        <span>Անհատական մոտեցում</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="description-block">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+  </div>
+
+  <div class="cases-block">
+
+    <mat-card>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+  <div class="centered-info">
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/shield.png"/>
+        <span>Գրանցվում և ուղարկում եք հայտը</span>
+      </div>
+    </div>
+
+    <div class="information-block">
+      <div class="info-content">
+        <div class="img-container">
+          <img src="../../../assets/images/fast.png"/>
+        </div>
+        <span>Ձեր հայտը ուսումնասիրվում է UDram-ի մասնագետների կողմից</span>
+      </div>
+    </div>
+
+
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/price.png"/>
+        <span>Ձեր հայտը հաստատավելու դեպքում ստանում եք ցանուցում</span>
+      </div>
+    </div>
+
+    <div class="information-block">
+      <div class="info-content">
+        <img src="../../../assets/images/advice.png"/>
+        <span>UDram-ի մասնագետի հետ այցելում եք բանկ</span>
+      </div>
+    </div>
+
+    <div class="information-block info-block-end">
+      <div class="info-content">
+        <img src="../../../assets/images/cap.png"/>
+        <span>Ստանում եք գումար</span>
+      </div>
+    </div>
+  </div>
+
+
+  <footer>
+    <div class="footer-center">
+
+      <div class="footer-block">
+        <span class="footer-block-title">Կոնտակտներ</span>
+        <ul>
+          <li>098 76 54 32</li>
+          <li>098 76 54 32</li>
+          <li>098 76 54 32</li>
+        </ul>
+        <span>
+          Էլ․ հասցե՝
+          <a href="mailto:info@udram.am">info@udram.am</a>
+        </span>
+      </div>
+
+      <div class="footer-block">
+        Կոնտենտ
+      </div>
+
+      <div class="footer-block">
+        <span class="footer-block-title">&nbsp;&nbsp;&nbsp;&nbsp;Հասցե</span>
+        <ul>
+          <li>ք․ Երեվան</li>
+          <li>Եղվարդի խճ․ 55</li>
+          <li> &nbsp;</li>
+        </ul>
+        <span>
+          &nbsp;
+          <a>&nbsp;</a>
+        </span>
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>
+
 

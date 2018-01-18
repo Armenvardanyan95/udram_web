@@ -1,14 +1,131 @@
+
+
 .image {
-  position: relative;
-  width: 100%; /* for IE 6 */
+  font-family: "Armenian Garamond";
+  background-image: url("../../../assets/images/main.jpg");
+  background-size: cover;
+  //background-repeat: no-repeat;
+  height: 700px;
+  margin-top: -35px;
 }
 
 .floating-content {
-  position: absolute;
-  top: 60%;
-  left: 45%;
   .center-button {
     color: white;
-    border-radius: 6%;
+    border-radius: 4%;
+  }
+  text-align: center;
+  padding-top: 155px;
+}
+
+.floating-text {
+  text-align: center;
+  h1 {
+    font-size: 50px;
+  }
+  font-size: 32px;
+  background: transparent;
+  padding-top: 55px;
+}
+
+.description-block {
+  margin: auto;
+  margin-top: 0px;
+  width: 60%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: solid 1px gray;
+  border-bottom: solid 1px gray;
+  margin-bottom: 5px;
+}
+
+.cases-block {
+  margin: auto;
+  width: 60%;
+  margin-top: 30px;
+  mat-card {
+    width: 45%;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+}
+
+.centered-info {
+  text-align: center;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: -30px;
+  width: 78%;
+  .info-block-end {
+    margin-right: 0px !important;
+  }
+  .information-block {
+    width: 240px;
+    height: 240px;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+    padding: 1%;
+    text-align: center;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.7s ease-out;
+    .info-content {
+      span {
+        display: block;
+      }
+      img {
+        height: 150px;
+      }
+    }
+  }
+
+  //.information-block:hover {
+  //  box-shadow: 0 10px 25px 0px rgba(0,0,0,0.6);
+  //  background-color: #FBA332;
+  //}
+
+  @media screen and (max-width: 500px) {
+    .centered-info {
+      width: auto;
+    }
+  }
+}
+
+footer {
+  background-color: #263238;
+  box-shadow: 5px 10px 10px 10px #888888;
+  .footer-center {
+    ul {
+      list-style: none;
+    }
+    margin: auto;
+    width: 78%;
+    .footer-block {
+      min-height: 70px;
+      padding: 10px;
+      text-align: center;
+      width: 30%;
+      display: inline-block;
+      color: white;
+      .footer-block-title {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+    font-family: "Armenian Garamond";
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer-block {
+    width: 200px !important;
+  }
+  .cases-block {
+    width: 80%;
+    mat-card {
+      width: auto;
+    }
   }
 }

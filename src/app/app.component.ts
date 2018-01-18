@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from '@angular/material';
+import {DomSanitizer} from '@angular/platform-browser';
+
+import { StoreService } from './common/store.service';
+import {UserService} from './common/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  isAuth: boolean = false;
+
+  constructor(private store: StoreService, private userService: UserService,
+              private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+    store.isAuth.subscribe(isAuth => this.isAuth = isAuth);
+    iconRegistry.addSvgIcon('udram', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/udram.svg'));
+  }
+
+  logOut(): void {
+    this.userService.logOut();
+  }
 }

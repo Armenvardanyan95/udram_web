@@ -24,7 +24,7 @@
 
 <mat-form-field>
   <input matInput [matDatepicker]="picker" placeholder="Ծննդյան ամսաթիվ"
-         [formControl]="form.controls['dateOfBirth']">
+         [formControl]="form.controls['dateOfBirth']" readonly (click)="picker.open()">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
 </mat-form-field>
@@ -39,10 +39,20 @@
     <strong>Պարտադիր</strong> է լրացման համար
   </mat-error>
 
+  <mat-error *ngIf="form.controls['ssn'].hasError('pattern')">
+    Պետք է պարունակի <strong>միայն թվեր</strong>
+  </mat-error>
+
+  <mat-error *ngIf="form.controls['ssn'].hasError('minlength')">
+    Պետք է պարունակի <strong>10 թիվ</strong>
+  </mat-error>
+
 </mat-form-field>
 
+<br/>
+
 <mat-radio-group [formControl]="form.controls['gender']">
-  Սեռ
-  <mat-radio-button value="1" checked="true">Արական</mat-radio-button>
-  <mat-radio-button value="2">Իգական</mat-radio-button>
+  <span class="g-container">Սեռ</span>
+  <mat-radio-button value="1" [checked]="!form.controls['gender'].value ? true : form.controls['gender'].value == 1">Արական</mat-radio-button>
+  <mat-radio-button value="2" [checked]="!form.controls['gender'].value ? form.controls['gender'].value == 2 : false">Իգական</mat-radio-button>
 </mat-radio-group>

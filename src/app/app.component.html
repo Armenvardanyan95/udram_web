@@ -1,13 +1,21 @@
 <td-layout>
-  <td-layout-nav logo="assets:teradata" toolbarTitle="UDram" navigationRoute="/">
-    <button mat-icon-button td-menu-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-    <div td-toolbar-content fxLayoutAlign="space-between right">
-      <a mat-button [routerLink]="['/login']">
+  <td-layout-nav logo="udram">
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span flex></span>
+      <a mat-button [routerLink]="['/login']" *ngIf="!isAuth">
         Մուտք
       </a>
+
+      <a mat-button *ngIf="isAuth" (click)="logOut()">
+        Ելք
+      </a>
     </div>
+
     <router-outlet></router-outlet>
+
+    <!--<footer>-->
+      <!--PRIVET-->
+    <!--</footer>-->
+
   </td-layout-nav>
 </td-layout>

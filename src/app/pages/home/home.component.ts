@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { StoreService } from '../../common/store.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public isAuth: boolean = false;
+
+  constructor(private store: StoreService) { }
 
   ngOnInit() {
+    this.store.isAuth.subscribe(isAuth => this.isAuth = isAuth);
   }
 
 }

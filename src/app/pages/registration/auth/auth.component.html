@@ -7,8 +7,13 @@
   <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
     Խնդրում ենք մուտքագրել ճիշտ հասցե
   </mat-error>
+
   <mat-error *ngIf="form.controls['email'].hasError('required')">
     <strong>Պարտադիր</strong> է լրացման համար
+  </mat-error>
+
+  <mat-error *ngIf="form.controls['email'].hasError('emailTaken')">
+    Մուտքագրված հասցեն արդեն զբաղված է
   </mat-error>
 
 </mat-form-field>
@@ -23,6 +28,14 @@
     <strong>Պարտադիր</strong> է լրացման համար
   </mat-error>
 
+  <mat-error *ngIf="form.controls['password'].hasError('pattern')">
+    Գաղտնաբառը պետք է պարունակի <strong>և տառեր, և թվեր</strong>
+  </mat-error>
+
+  <mat-error *ngIf="form.controls['password'].hasError('minlength')">
+    Պետք է պարունակի առնվազն<strong>8 սիմվոլ</strong>
+  </mat-error>
+
 </mat-form-field>
 
 <mat-form-field>
@@ -35,4 +48,17 @@
     <strong>Պարտադիր</strong> է լրացման համար
   </mat-error>
 
+  <mat-error *ngIf="form.controls['confirmPassword'].hasError('pattern')">
+    Գաղտնաբառը պետք է պարունակի <strong>և տառեր, և թվեր</strong>
+  </mat-error>
+
+  <mat-error *ngIf="form.controls['confirmPassword'].hasError('minlength')">
+    Պետք է պարունակի առնվազն<strong>8 սիմվոլ</strong>
+  </mat-error>
+
 </mat-form-field>
+
+<mat-error
+  *ngIf="form.hasError('passwordsDontMatch') && form.controls['password'].touched && form.controls['password'].touched && form.controls['confirmPassword'].value && form.controls['confirmPassword'].value ">
+  Գաղտնաբառերը չեն համապատասխանում
+</mat-error>
