@@ -46,6 +46,7 @@ const routes: Routes = [
   {path: 'success', component: SuccessComponent},
   {path: 'error', component: ErrorComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: {user: CurrentUserResolverService}},
+  {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
   {path: '**', component: PageNotFoundComponent}
 ];
 

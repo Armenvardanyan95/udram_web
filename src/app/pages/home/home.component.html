@@ -1,7 +1,7 @@
 <div class="image">
 
   <div class="floating-text">
-    <h1>UDram վարկային միջնորդ</h1>
+    <h1><img src="../../../assets/images/footer-logo.png" width="337" height="152"/></h1>
     <span>Կօգնենք Ձեզ ստանալ վարկ</span>
   </div>
 
@@ -63,6 +63,7 @@
   <div class="cases-block">
 
     <mat-card>
+      <img mat-card-image src="../../../assets/images/description.jpg">
       <mat-card-content>
         <p>
           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -73,6 +74,7 @@
     </mat-card>
 
     <mat-card>
+      <img mat-card-image src="../../../assets/images/description.jpg">
       <mat-card-content>
         <p>
           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -83,6 +85,7 @@
     </mat-card>
 
     <mat-card>
+      <img mat-card-image src="../../../assets/images/description.jpg">
       <mat-card-content>
         <p>
           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -93,6 +96,7 @@
     </mat-card>
 
     <mat-card>
+      <img mat-card-image src="../../../assets/images/description.jpg">
       <mat-card-content>
         <p>
           The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -107,7 +111,7 @@
   <div class="centered-info">
     <div class="information-block">
       <div class="info-content">
-        <img src="../../../assets/images/shield.png"/>
+        <img src="../../../assets/images/1.png"/>
         <span>Գրանցվում և ուղարկում եք հայտը</span>
       </div>
     </div>
@@ -115,7 +119,7 @@
     <div class="information-block">
       <div class="info-content">
         <div class="img-container">
-          <img src="../../../assets/images/fast.png"/>
+          <img src="../../../assets/images/2.png"/>
         </div>
         <span>Ձեր հայտը ուսումնասիրվում է UDram-ի մասնագետների կողմից</span>
       </div>
@@ -124,24 +128,31 @@
 
     <div class="information-block">
       <div class="info-content">
-        <img src="../../../assets/images/price.png"/>
-        <span>Ձեր հայտը հաստատավելու դեպքում ստանում եք ցանուցում</span>
+        <img src="../../../assets/images/3.png"/>
+        <span>Ձեր հայտը հաստատավելու դեպքում ստանում եք ծանուցում</span>
       </div>
     </div>
 
     <div class="information-block">
       <div class="info-content">
-        <img src="../../../assets/images/advice.png"/>
+        <img src="../../../assets/images/4.png"/>
         <span>UDram-ի մասնագետի հետ այցելում եք բանկ</span>
       </div>
     </div>
 
     <div class="information-block info-block-end">
       <div class="info-content">
-        <img src="../../../assets/images/cap.png"/>
+        <img src="../../../assets/images/5.png"/>
         <span>Ստանում եք գումար</span>
       </div>
     </div>
+  </div>
+
+  <div class="action-button-container">
+    <button mat-raised-button color="accent" class="action-button"
+            [routerLink]="['/registration']" *ngIf="!isAuth">
+      Թողնել հայտ
+    </button>
   </div>
 
 
@@ -162,14 +173,14 @@
       </div>
 
       <div class="footer-block">
-        Կոնտենտ
+        <div class="footer-logo"></div>
       </div>
 
       <div class="footer-block">
         <span class="footer-block-title">&nbsp;&nbsp;&nbsp;&nbsp;Հասցե</span>
         <ul>
-          <li>ք․ Երեվան</li>
-          <li>Եղվարդի խճ․ 55</li>
+          <li>ք․ Երևան</li>
+          <li>Դավիթաշեն, Եղվարդի խճ․ (ավտոպարկ)</li>
           <li> &nbsp;</li>
         </ul>
         <span>

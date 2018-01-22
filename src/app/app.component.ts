@@ -16,7 +16,7 @@ export class AppComponent {
   constructor(private store: StoreService, private userService: UserService,
               private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
     store.isAuth.subscribe(isAuth => this.isAuth = isAuth);
-    iconRegistry.addSvgIcon('udram', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/udram.svg'));
+    iconRegistry.addSvgIcon('udram', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/sg848-m3krh.svg'));
   }
 
   logOut(): void {

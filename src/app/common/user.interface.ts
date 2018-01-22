@@ -1,4 +1,10 @@
 interface IUser {
+  _id: string;
+  passportScan: string;
+  acraScan: string;
+  auth: {
+    email: string;
+  }
   personal: {
     firstName: string,
     lastName: string,

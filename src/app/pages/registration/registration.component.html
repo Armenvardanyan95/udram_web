@@ -28,8 +28,8 @@
         </ng-template>
       </td-step>
 
-      <td-step #step3 label="Մուտքային տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ">
-               <!--[disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid" disableRipple>-->
+      <td-step #step3 label="Մուտքային տվյալներ" sublabel="Կայք մուտք գործելու համար անհրաժեշտ տվյալներ"
+               [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid" disableRipple>
 
         <app-auth [form]="form.controls['auth']"></app-auth>
 
@@ -62,7 +62,7 @@
         </ng-template>
       </td-step>
 
-      <td-step #step6 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները" [disabled]="">
+      <td-step #step6 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները" [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
         <app-files [files]="files"></app-files>
         <ng-template td-step-actions>
           <button mat-raised-button color="accent" (click)="step7.active = true" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
