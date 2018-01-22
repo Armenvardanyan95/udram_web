@@ -1,0 +1,103 @@
+<div class="dashboard-page">
+
+  <p-table #tt [value]="users" [paginator]="true" [rows]="20" [resizableColumns]="true"
+           [reorderableColumns]="true" [lazy]="true" (onLazyLoad)="loadUsers($event)" [totalRecords]="totalCount">
+
+    <ng-template pTemplate="caption">
+      Հայտեր
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pResizableColumn pReorderableColumn>
+          <p>Անուն Ազգանուն</p>
+          <input pInputText placeholder="Փնտրել" type="text" (input)="tt.filter($event.target.value, 'fullName')">
+        </th>
+        <th pResizableColumn pReorderableColumn>Հեռախոսահամար</th>
+        <th pResizableColumn>Էլ․հասցե</th>
+        <th pResizableColumn pReorderableColumn>Հասցե</th>
+        <th pResizableColumn pReorderableColumn>Ցանկալի գումար</th>
+        <th>Կարգավիճակ</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-user>
+      <tr (click)="showDialog(user)">
+        <td>{{ user.personal?.firstName }} {{ user.personal?.lastName }}</td>
+        <td>{{ user.request?.mobilePhone }}</td>
+        <td>{{ user.auth?.email }}</td>
+        <td>{{ user.additional?.address }}</td>
+        <td>{{ user.request?.amount }}</td>
+        <td>
+          <ng-container *ngIf="user.request.status == statuses.Pending">
+
+            <button pButton label="Հաստատել" class="approve-button" (click)="changeStatus(user, statuses.Accepted)"></button>
+            <button pButton label="Մերժել" class="reject-button" (click)="changeStatus(user, statuses.Rejected)"></button>
+
+          </ng-container>
+
+          <ng-container *ngIf="user.request.status != statuses.Pending">
+
+            <span>{{ user.request.status == statuses.Accepted ? 'Հաստատված' : 'Մերժված' }}</span>
+
+          </ng-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+<p-dialog [(visible)]="isDialogVisible" *ngIf="selectedUser" width="800px">
+  <p-header>
+    {{ selectedUser.personal.firstName }} {{ selectedUser.personal.lastName }} ({{  selectedUser.auth.email }})
+  </p-header>
+
+  <div class="personal">
+    <span>Ծննդյան տարեթիվ՝ </span>
+    {{ selectedUser.personal.dateOfBirth | date : 'd/MM/yyyy' }}
+    <span>Սոց․ քարդ՝</span>
+    {{ selectedUser.personal.ssn }}
+  </div>
+
+  <div
+    *ngIf="selectedUser.identification.identificationType == identificationTypes.Passport ||
+    selectedUser.identification.identificationType == identificationTypes.Both">
+    <h6>Անձնագրի տվյալներ</h6>
+    <span>Համար՝ {{ selectedUser.identification.passport.number }}</span><br>
+    <span>Տրված է՝ {{ selectedUser.identification.passport.issuedBy }}</span><br>
+    <span>Տրման ամսաթիվ՝ {{ selectedUser.identification.passport.dateOfIssue  | date : 'd/MM/yyyy' }}</span><br>
+    <span>Վավեր է մինչև՝ {{ selectedUser.identification.passport.validityDate  | date : 'd/MM/yyyy' }}</span><br>
+  </div><br>
+
+  <div
+    *ngIf="selectedUser.identification.identificationType == identificationTypes.IDCard ||
+    selectedUser.identification.identificationType == identificationTypes.Both">
+    <h6>Նույնականացման քարտի տվյալներ</h6>
+    <span>Համար՝ {{ selectedUser.identification.idCard.number }}</span><br>
+    <span>Տրված է՝ {{ selectedUser.identification.idCard.issuedBy }}</span><br>
+    <span>Տրման ամսաթիվ՝ {{ selectedUser.identification.idCard.dateOfIssue  | date : 'd/MM/yyyy' }}</span><br>
+    <span>Վավեր է մինչև՝ {{ selectedUser.identification.idCard.validityDate  | date : 'd/MM/yyyy' }}</span><br>
+  </div>
+  <br>
+  <div class="additional">
+
+    <span *ngIf="selectedUser.additional.province">{{ provinces[selectedUser.additional.province].name }}</span><br>
+    <span> {{ selectedUser.additional.city }} </span><br>
+    <span>{{ selectedUser.additional.address }}</span><br>
+    <span>{{ selectedUser.additional.other }}</span><br>
+
+  </div>
+  <br>
+  <div class="files">
+    <a [href]="environment.apiUrl + selectedUser.passportScan" *ngIf="selectedUser.passportScan"
+       [download]="'passport(' + selectedUser.auth.email + ')'">
+      Անձնագրի պատճեն
+    </a>
+    <a [href]="environment.apiUrl + selectedUser.acraScan" *ngIf="selectedUser.acraScan"
+       [download]="'acra(' + selectedUser.auth.email + ')'">
+      ԱՔՐԱ պատճեն
+    </a>
+  </div>
+
+</p-dialog>
