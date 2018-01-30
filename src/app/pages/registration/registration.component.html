@@ -51,6 +51,7 @@
       <td-step #step4 label="Լրացուցիչ տվյալներ" sublabel="Պարտադիր չեն լրացման համար"
                [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
 
+
         <p class="not-required-notice">Պարտադիր չէ լրացման համար</p>
         <app-additional [form]="form.controls['additional']"></app-additional>
 
