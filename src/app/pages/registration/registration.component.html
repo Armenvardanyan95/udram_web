@@ -22,9 +22,13 @@
         <app-identification [form]="form.controls['identification']" (typeOfIdentificationChanged)="onIdentificationTypeChange($event)"></app-identification>
 
         <ng-template td-step-actions>
-          <button mat-button (click)="step1.active = true" class="text-upper">Հետ</button>
+          <button mat-button (click)="step1.active = true" class="text-upper">
+            <mat-icon>keyboard_arrow_left</mat-icon>Հետ
+          </button>
           <button mat-raised-button color="accent" (click)="step3.active = true"
-                  class="text-upper" [disabled]="form.controls['personal'].invalid">Հաջորդ</button>
+                  class="text-upper" [disabled]="form.controls['identification'].invalid">
+            Հաջորդ<mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
         </ng-template>
       </td-step>
 
@@ -34,20 +38,29 @@
         <app-auth [form]="form.controls['auth']"></app-auth>
 
         <ng-template td-step-actions>
-          <button mat-button (click)="step2.active = true" class="text-upper">Հետ</button>
+          <button mat-button (click)="step2.active = true" class="text-upper">
+            <mat-icon>keyboard_arrow_left</mat-icon>Հետ
+          </button>
           <button mat-raised-button color="accent" (click)="step4.active = true"
-                  class="text-upper" [disabled]="form.controls['auth'].invalid">Հաջորդ</button>
+                  class="text-upper" [disabled]="form.controls['auth'].invalid">
+            Հաջորդ<mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
         </ng-template>
       </td-step>
 
       <td-step #step4 label="Լրացուցիչ տվյալներ" sublabel="Պարտադիր չեն լրացման համար"
                [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
 
+        <p class="not-required-notice">Պարտադիր չէ լրացման համար</p>
         <app-additional [form]="form.controls['additional']"></app-additional>
 
         <ng-template td-step-actions>
-          <button mat-button (click)="step3.active = false" class="text-upper">Հետ</button>
-          <button mat-raised-button color="accent" (click)="step5.active = true" class="text-upper">Հաջորդ</button>
+          <button mat-button (click)="step3.active = true" class="text-upper">
+            <mat-icon>keyboard_arrow_left</mat-icon>Հետ
+          </button>
+          <button mat-raised-button color="accent" (click)="step5.active = true" class="text-upper">
+            Հաջորդ<mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
         </ng-template>
       </td-step>
 
@@ -57,19 +70,16 @@
         <app-request [form]="form.controls['request']"></app-request>
 
         <ng-template td-step-actions>
-          <button mat-button (click)="step4.active = false" class="text-upper">Հետ</button>
-          <button mat-raised-button color="accent" (click)="step6.active = true" class="text-upper">Հաջորդ</button>
+          <button mat-button (click)="step4.active = true" class="text-upper">
+            <mat-icon>keyboard_arrow_left</mat-icon>Հետ
+          </button>
+          <button mat-raised-button color="accent" (click)="step6.active = true" class="text-upper" [disabled]="form.controls['request'].invalid">
+            Հաջորդ<mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
         </ng-template>
       </td-step>
 
-      <td-step #step6 label="Ֆայլեր" sublabel="Ձեր փաստաթղթերի օրինակները" [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
-        <app-files [files]="files"></app-files>
-        <ng-template td-step-actions>
-          <button mat-raised-button color="accent" (click)="step7.active = true" class="text-upper"fxLayoutAlign="space-between center" >Հաջորդ</button>
-        </ng-template>
-      </td-step>
-
-      <td-step #step7 label="Պայմաններ"
+      <td-step #step6 label="Պայմաններ"
                [disabled]="form.controls['personal'].invalid || form.controls['identification'].invalid || form.controls['auth'].invalid">
 
         <app-terms [hasAgreedToTerms]="form.controls['hasAgreedToTerms']"></app-terms>

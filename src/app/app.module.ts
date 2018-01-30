@@ -35,6 +35,7 @@ import {CurrentUserResolverService} from './common/current-user-resolver.service
 import { ErrorComponent } from './pages/error/error.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FilesComponent } from './pages/registration/files/files.component';
+import { TermsAndConditionsPageComponent } from './pages/terms-and-conditions-page/terms-and-conditions-page.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path: 'success', component: SuccessComponent},
   {path: 'error', component: ErrorComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], resolve: {user: CurrentUserResolverService}},
+  {path: 'terms', component: TermsAndConditionsPageComponent},
   {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
   {path: '**', component: PageNotFoundComponent}
 ];
@@ -68,7 +70,8 @@ const routes: Routes = [
     ProfileComponent,
     ErrorComponent,
     PageNotFoundComponent,
-    FilesComponent
+    FilesComponent,
+    TermsAndConditionsPageComponent
   ],
   imports: [
     BrowserModule,

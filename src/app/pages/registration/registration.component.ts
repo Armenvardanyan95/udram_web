@@ -36,7 +36,6 @@ export class RegistrationComponent implements OnInit {
   public startDate = new Date(2000, 0, 1);
   public matcher = new ErrorMatcher();
   public smallScreen: boolean = window.innerWidth < 900;
-  public files: {passport?: File, acra?: File} = {};
 
   constructor(private formBuilder: FormBuilder, private router: Router,
               private userService: UserService, private store: StoreService) {
@@ -68,7 +67,10 @@ export class RegistrationComponent implements OnInit {
       request: formBuilder.group({
         amount: ['', Validators.required],
         description: [''],
-        mobilePhone: ['', Validators.required]
+        mobilePhone: ['', Validators.required],
+        isEmployed: [false],
+        hasHistory: [false],
+        isDifficult: [false]
       }),
       hasAgreedToTerms: ['', Validators.requiredTrue]
     });
@@ -81,7 +83,7 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('/success').then(() => {
       const user = this.form.value.personal;
       const message = `Հարգելի ${user.firstName} ${user.lastName}, Դուք հաջողությամբ գրանցվել եք UDram համակարգում։ 
-                               Դուք կստանաք ցանուցում Ձեր հայտի կարգավիճակի փոփոխության մասին։ Շնորհակալություն։`;
+                               Դուք կստանաք ծանուցում Ձեր հայտի կարգավիճակի փոփոխության մասին։ Շնորհակալություն։`;
       this.store.successMessage.next(message);
     });
   }
@@ -107,21 +109,7 @@ export class RegistrationComponent implements OnInit {
     if (this.form.valid) {
       this.userService.registerUser(this.form.value)
         .subscribe(
-          (result: {message: string, id: string}) => {
-            if (this.files.passport) {
-              this.userService.uploadPassportScan(result.id, this.files.passport)
-                .subscribe(
-                  res => this.redirect()
-                )
-            } else if (this.files.acra) {
-              this.userService.uploadAcraScan(result.id, this.files.acra)
-                .subscribe(
-                  () => this.redirect()
-                )
-            } else {
-              this.redirect();
-            }
-          },
+          result => this.redirect(),
           err => console.log(err)
         )
     }

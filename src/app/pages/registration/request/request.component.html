@@ -22,7 +22,24 @@
 
 </mat-form-field>
 
+<div>
+  <span>Գրանցված աշխատող ե՞ք</span>
+  <mat-checkbox [formControl]="form.controls['isEmployed']"></mat-checkbox>
+</div>
+
+<div>
+  <span>Ունե՞ք վարկային պատմություն</span>
+  <mat-checkbox [formControl]="form.controls['hasHistory']"></mat-checkbox>
+</div>
+
+<div>
+  <span>Ծանրաբեռնված ե՞ք վարկերով</span>
+  <mat-checkbox [formControl]="form.controls['isDifficult']"></mat-checkbox>
+</div>
+
 <mat-form-field>
   <textarea matInput placeholder="Նկարագրեք Ձեր վարկային պատմությունը" matTextareaAutosize matAutosizeMinRows="10"
             matAutosizeMaxRows="10" [formControl]="form.controls['description']"></textarea>
 </mat-form-field>
+
+

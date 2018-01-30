@@ -76,7 +76,10 @@ export class ProfileComponent implements OnInit {
       request: formBuilder.group({
         amount: ['', Validators.required],
         description: [''],
-        mobilePhone: ['', Validators.required]
+        mobilePhone: ['', Validators.required],
+        isEmployed: [false],
+        hasHistory: [false],
+        isDifficult: [false]
       })
     })
 
@@ -87,7 +90,6 @@ export class ProfileComponent implements OnInit {
       this.onIdentificationTypeChange(user.identification.identificationType);
       this.form.patchValue(user);
       this.user = user;
-      this.user.request.status = 2;
     });
   }
 

@@ -2,7 +2,7 @@
 
 .image {
   font-family: "Armenian Garamond";
-  background-image: url("../../../assets/images/main.jpg");
+  background-image: url("../../../assets/images/main-4.jpg");
   background-size: cover;
   //background-repeat: no-repeat;
   height: 700px;
@@ -129,7 +129,7 @@ footer {
       .footer-logo {
         width: 489px;
         height: 133px;
-        background-image: url("../../../assets/images/footer-logo2.png");
+        background-image: url("../../../assets/images/Spitak.png");
         background-repeat: no-repeat;
         background-position: center;
       }
@@ -141,11 +141,22 @@ footer {
 @media screen and (max-width: 500px) {
   .footer-block {
     width: 200px !important;
+    .footer-logo {
+      background-position: 0% 0% !important;
+    }
   }
   .cases-block {
     width: 80%;
     mat-card {
       width: auto;
     }
+  }
+}
+
+mat-card {
+  min-height: 317px !important;
+  .bold-text {
+    font-weight: bolder;
+    font-size: 15px;
   }
 }
