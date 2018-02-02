@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ErrorMatcher } from '../../../common/error-matcher';
 
 @Component({
   selector: 'app-auth',
@@ -9,6 +10,7 @@ import { FormGroup } from '@angular/forms';
 export class AuthComponent implements OnInit {
 
   @Input() form: FormGroup;
+  public matcher: ErrorMatcher = new ErrorMatcher();
 
   constructor() { }
 
