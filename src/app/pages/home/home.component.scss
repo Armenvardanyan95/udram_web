@@ -5,6 +5,7 @@
   background-image: url("../../../assets/images/main-4.jpg");
   background-size: cover;
   //background-repeat: no-repeat;
+  background-position:center;
   height: 700px;
   margin-top: -35px;
 }
@@ -127,14 +128,31 @@ footer {
         text-align: center;
       }
       .footer-logo {
-        width: 489px;
         height: 133px;
         background-image: url("../../../assets/images/Spitak.png");
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center !important;
       }
     }
     font-family: "Armenian Garamond";
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .cases-block {
+    text-align:center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+    .mat-card {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+  .cases-block mat-card {
+    width: 75%;
   }
 }
 
@@ -151,6 +169,35 @@ footer {
       width: auto;
     }
   }
+}
+
+
+
+
+
+@media only screen and (max-width: 499px) {
+    .footer-center {
+        text-align:center;
+    }
+    .ul-footer {
+      padding: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 888px) {
+    
+.footer-block-logo {
+  width:50% !important;
+}
+ .footer-center {
+ width:95% !important;
+ }
+}
+
+@media only screen and (max-width: 360px) {
+   .footer-logo {
+    background-size:100%;
+   }
 }
 
 mat-card {
