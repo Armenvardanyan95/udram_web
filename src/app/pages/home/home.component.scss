@@ -45,11 +45,11 @@
 }
 
 .cases-block {
-  margin: auto;
-  width: 60%;
+  margin:0 auto !important;
+  width: 80%;
   margin-top: 30px;
   mat-card {
-    width: 45%;
+    width: 40%; // old > 45%
     display: inline-block;
     margin-bottom: 15px;
   }
@@ -150,6 +150,37 @@ footer {
   }  
 }
 
+@media only screen and (max-width: 826px) {
+  .centered-info img{
+      height: 120px !important;
+  }
+  .information-block {
+    width: 200px !important;
+    height: 200px !important;
+  }
+}
+
+@media only screen and (max-width: 696px) {
+   .information-block {
+    width: 180px !important;
+  }
+  .centered-info img{
+    height: 110px !important;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .information-block {
+   width: 150px !important;
+   height: 170px !important;
+ }
+ .centered-info img{
+   height: 100px !important;
+ }
+}
+
+
+
 @media only screen and (max-width: 930px) {
   .cases-block {
     text-align:center;
@@ -174,9 +205,7 @@ footer {
 
 
 @media screen and (max-width: 541px) {
-  .info-content img {
-    height: 200px !important;
-  }
+  
   .description-block {
     margin-top: 100px;
   }
