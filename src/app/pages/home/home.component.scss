@@ -253,6 +253,10 @@ footer {
    .footer-logo {
     background-size:100%;
    }
+   .floating-text img{
+    width:200px;
+    height:132px;
+  }
 }
 
 mat-card {
@@ -261,4 +265,8 @@ mat-card {
     font-weight: bolder;
     font-size: 15px;
   }
+}
+
+.center {
+  text-align:center;
 }
