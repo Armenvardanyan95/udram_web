@@ -270,3 +270,40 @@ mat-card {
 .center {
   text-align:center;
 }
+
+.centered-info {
+   width: 98% !important;
+   }
+
+
+@media only screen and (max-width: 1407px) {
+   .information-block {
+   width: 200px !important;
+   }
+}
+
+@media only screen and (max-width: 1173px) {
+   .centered-info {
+      width: 88% !important;
+    }
+   .information-block {
+   width: 240px !important;
+   }
+}
+
+
+@media only screen and (max-width: 893px) {
+   .centered-info {
+    width: 98% !important;
+   }
+   .information-block {
+   width: 200px !important;
+   }
+}
+
+@media only screen and (max-width: 434px) {
+   .centered-info {
+      margin-bottom:30px !important;
+   }
+}
+
