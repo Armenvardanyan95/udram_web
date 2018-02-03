@@ -1,7 +1,7 @@
 <td-layout>
   <td-layout-nav logo="udram" navigationRoute="/">
 
-    <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <div td-toolbar-content layout="row" layout-align="start center" flex class="header-rigth">
       <span flex></span>
       <a mat-button [routerLink]="['/login']" *ngIf="!isAuth">Մուտք</a>
       <a mat-button *ngIf="isAuth" (click)="logOut()">Ելք</a>
