@@ -3,6 +3,7 @@
 
     <div td-toolbar-content layout="row" layout-align="start center" flex class="header-login">
       <span flex></span>
+      <a mat-button (click)="openContactsDialog()" class="contact-us-header">Կապնվել մեզ հետ</a>
       <a mat-button [routerLink]="['/login']" *ngIf="!isAuth">Մուտք</a>
       <a mat-button *ngIf="isAuth" (click)="logOut()">Ելք</a>
     </div>

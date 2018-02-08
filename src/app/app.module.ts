@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule,
-  MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatCheckboxModule } from '@angular/material';
+  MatDatepickerModule, MatNativeDateModule, MatRadioModule, MatSelectModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
 
 import { CovalentLayoutModule, CovalentStepsModule, CovalentMessageModule, CovalentFileModule } from '@covalent/core';
 import { CookieModule } from 'ngx-cookie';
@@ -36,6 +36,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FilesComponent } from './pages/registration/files/files.component';
 import { TermsAndConditionsPageComponent } from './pages/terms-and-conditions-page/terms-and-conditions-page.component';
+import { ContactsDialogComponent } from './components/contacts-dialog/contacts-dialog.component';
 
 
 const routes: Routes = [
@@ -71,7 +72,8 @@ const routes: Routes = [
     ErrorComponent,
     PageNotFoundComponent,
     FilesComponent,
-    TermsAndConditionsPageComponent
+    TermsAndConditionsPageComponent,
+    ContactsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +89,7 @@ const routes: Routes = [
     MatNativeDateModule,
     MatRadioModule,
     MatInputModule,
+    MatDialogModule,
     MatSelectModule,
     MatCheckboxModule,
     CovalentLayoutModule,
@@ -96,6 +99,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     CookieModule.forRoot()
   ],
+  entryComponents: [ContactsDialogComponent],
   providers: [{provide: Environment, useValue: environment}, UserService, StoreService, AuthGuard, CurrentUserResolverService],
   bootstrap: [AppComponent]
 })
