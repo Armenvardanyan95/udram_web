@@ -306,8 +306,8 @@ mat-card {
   .centered-info {
     width: auto;
   }
-  .contact-us-header {
-    position: absolute !important;
-    background-color: red;
-  }
+}
+
+.floating-text span {
+  font-size:42px;
 }
