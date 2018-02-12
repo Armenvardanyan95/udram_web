@@ -89,15 +89,6 @@
 
   </div>
   <br>
-  <div class="files">
-    <a [href]="environment.apiUrl + selectedUser.passportScan" *ngIf="selectedUser.passportScan"
-       [download]="'passport(' + selectedUser.auth.email + ')'">
-      Անձնագրի պատճեն
-    </a>
-    <a [href]="environment.apiUrl + selectedUser.acraScan" *ngIf="selectedUser.acraScan"
-       [download]="'acra(' + selectedUser.auth.email + ')'">
-      ԱՔՐԱ պատճեն
-    </a>
-  </div>
+  <button pButton label="Բեռնել Տվյալները որպես PDF" (click)="downloadPDF()"></button>
 
 </p-dialog>

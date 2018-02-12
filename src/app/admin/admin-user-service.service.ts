@@ -16,6 +16,27 @@ export class AdminUserService {
     return new HttpHeaders({'Authorization': `Token ${token}`});
   }
 
+  private b64toBlob(b64Data: string, contentType: string = '', sliceSize: number = 512) {
+
+    const byteCharacters = atob(b64Data);
+    const  byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, {type: contentType});
+  }
+
   authenticate(credentials: {email: string, password: string}): Observable<{token: string}> {
     return <Observable<{token: string}>>this.http.post(`${this.environment.apiUrl}admin-token`, credentials);
   }
@@ -38,5 +59,10 @@ export class AdminUserService {
   changeRequestStatus(id: string, status: RequestStatus): Observable<{message: string}> {
     return <Observable<{message: string}>>this.http
       .post(`${this.environment.apiUrl}admin/change-status`, {id, status}, {headers: this.getAuthHeaders()});
+  }
+
+  getPDF(id: string): Observable<Blob> {
+    return this.http.get<{file: string}>(`${this.environment.apiUrl}admin/pdf/${id}`, {headers: this.getAuthHeaders()})
+      .map(pdf => this.b64toBlob(pdf.file, 'application/pdf'));
   }
 }
