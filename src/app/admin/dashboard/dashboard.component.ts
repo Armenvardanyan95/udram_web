@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
   }
 
   downloadPDF(): void {
-    this.backend.getPDF(this.selectedUser._id).subscribe(pdf => FileSaver.saveAs(pdf, 'document.pdf'));
+    this.backend.getPDF(this.selectedUser._id).subscribe(pdf => FileSaver.saveAs(pdf.fileBlob, `${pdf.fileName}.pdf`));
   }
 
 }

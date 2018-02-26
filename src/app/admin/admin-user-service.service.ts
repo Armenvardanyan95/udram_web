@@ -61,8 +61,8 @@ export class AdminUserService {
       .post(`${this.environment.apiUrl}admin/change-status`, {id, status}, {headers: this.getAuthHeaders()});
   }
 
-  getPDF(id: string): Observable<Blob> {
-    return this.http.get<{file: string}>(`${this.environment.apiUrl}admin/pdf/${id}`, {headers: this.getAuthHeaders()})
-      .map(pdf => this.b64toBlob(pdf.file, 'application/pdf'));
+  getPDF(id: string): Observable<{fileBlob: Blob, fileName: string}> {
+    return this.http.get<{file: string, fileName: string}>(`${this.environment.apiUrl}admin/pdf/${id}`, {headers: this.getAuthHeaders()})
+      .map(pdf => ({fileBlob: this.b64toBlob(pdf.file, 'application/pdf'), fileName: pdf.fileName}));
   }
 }
