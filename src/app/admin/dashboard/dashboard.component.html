@@ -31,8 +31,8 @@
         <td>
           <ng-container *ngIf="user.request.status == statuses.Pending">
 
-            <button pButton label="Հաստատել" class="approve-button" (click)="changeStatus(user, statuses.Accepted)"></button>
-            <button pButton label="Մերժել" class="reject-button" (click)="changeStatus(user, statuses.Rejected)"></button>
+            <button pButton label="Հաստատել" class="approve-button" (click)="$event.stopPropagation(); changeStatus(user, statuses.Accepted)"></button>
+            <button pButton label="Մերժել" class="reject-button" (click)="$event.stopPropagation(); changeStatus(user, statuses.Rejected)"></button>
 
           </ng-container>
 
@@ -48,9 +48,10 @@
 
 </div>
 
-<p-dialog [(visible)]="isDialogVisible" *ngIf="selectedUser" width="800px">
+<p-dialog [(visible)]="isDialogVisible" *ngIf="selectedUser" width="800px" [closable]="true" [dismissableMask]="true">
   <p-header>
     {{ selectedUser.personal.firstName }} {{ selectedUser.personal.lastName }} ({{  selectedUser.auth.email }})
+    <button class="fa-close-xim" style="float: right" (click)="isDialogVisible = false">x</button>
   </p-header>
 
   <div class="personal">
@@ -82,7 +83,7 @@
   <br>
   <div class="additional">
 
-    <span *ngIf="selectedUser.additional.province">{{ provinces[selectedUser.additional.province].name }}</span><br>
+    <span *ngIf="selectedUser.additional.province">{{ provinces[selectedUser.additional.province - 1].name }}</span><br>
     <span> {{ selectedUser.additional.city }} </span><br>
     <span>{{ selectedUser.additional.address }}</span><br>
     <span>{{ selectedUser.additional.other }}</span><br>

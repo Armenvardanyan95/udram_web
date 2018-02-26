@@ -50,5 +50,8 @@ export class DashboardComponent implements OnInit {
     this.isDialogVisible = true;
     this.selectedUser = user;
   }
-
+  
+  downloadPDF(): void {
+    this.backend.getPDF(this.selectedUser._id).subscribe(pdf => FileSaver.saveAs(pdf.fileBlob, `${pdf.fileName}.pdf`));
+  }
 }

@@ -1,0 +1,15 @@
+.contacts-dialog {
+  font-family: "Armenian Garamond";
+}
+/deep/ .mat-dialog-container {
+	background: #e0e0e0;
+}
+
+.contacts-dialog {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0 !important;
+}
