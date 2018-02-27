@@ -144,6 +144,8 @@ footer {
   }
 }
 
+
+
 @media only screen and (max-width: 1024px) {
   .centered-info {
     width: 97%;
@@ -218,6 +220,7 @@ footer {
     .footer-logo {
       background-position: 0% 0% !important;
     }
+    
   }
   .cases-block {
     width: 80%;
@@ -234,8 +237,12 @@ footer {
     .footer-center {
         text-align:center;
     }
-    .ul-footer {
-      padding: 0 !important;
+    .footer-block ul{
+      padding-left: 17px !important;
+    }
+    .image {
+      background-size: 272%;
+      background-position: 53%;
     }
 }
 
@@ -249,6 +256,7 @@ footer {
  }
 }
 
+
 @media only screen and (max-width: 360px) {
    .footer-logo {
     background-size:100%;
@@ -257,7 +265,23 @@ footer {
      width: 270px !important;
      height: 120px;
    }
+   .image {
+    background-size: 292%;
+  }
+  .floating-text {
+    font-size: 27px;
+  }
+  .description-block ul {
+    padding-left: 4px;
+  }
 }
+
+@media only screen and (max-width: 320px) {
+  .image {
+    height: 547px;
+ }
+}
+
 
 mat-card {
   min-height: 317px !important;

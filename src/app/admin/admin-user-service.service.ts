@@ -6,7 +6,7 @@ import {Environment} from '../common/environment';
 import { CookieService } from 'ngx-cookie';
 import {RequestStatus} from '../common/request.status.enum';
 
-@Injectable()
+@Injectable() 
 export class AdminUserService {
 
   constructor(private environment: Environment, private http: HttpClient, private cookies: CookieService) { }
@@ -14,6 +14,27 @@ export class AdminUserService {
   private getAuthHeaders(): HttpHeaders {
     const token = this.cookies.get('token');
     return new HttpHeaders({'Authorization': `Token ${token}`});
+  }
+
+  private b64toBlob(b64Data: string, contentType: string = '', sliceSize: number = 512) {
+
+    const byteCharacters = atob(b64Data);
+    const  byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, {type: contentType});
   }
 
   authenticate(credentials: {email: string, password: string}): Observable<{token: string}> {

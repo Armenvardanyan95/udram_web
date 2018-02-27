@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/pluck';
+import * as FileSaver from 'file-saver';
 import { AdminUserService } from '../admin-user-service.service';
 import { LazyLoadEvent } from 'primeng/primeng';
 import { RequestStatus } from '../../common/request.status.enum';
