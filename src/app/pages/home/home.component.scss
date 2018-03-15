@@ -49,7 +49,7 @@
   width: 80%;
   margin-top: 30px;
   mat-card {
-    width: 40%; // old > 45%
+    width: 40%;
     display: inline-block;
     margin-bottom: 15px;
   }
@@ -104,8 +104,13 @@
   //  background-color: #FBA332;
   //}
 
-
+  @media screen and (max-width: 500px) {
+    .centered-info {
+      width: auto;
+    }
+  }
 }
+
 
 
 footer {
@@ -139,10 +144,12 @@ footer {
   }
 }
 
+
+
 @media only screen and (max-width: 1024px) {
   .centered-info {
     width: 97%;
-  }
+  }  
 }
 
 @media only screen and (max-width: 826px) {
@@ -200,7 +207,7 @@ footer {
 
 
 @media screen and (max-width: 541px) {
-
+  
   .description-block {
     margin-top: 100px;
   }
@@ -213,6 +220,7 @@ footer {
     .footer-logo {
       background-position: 0% 0% !important;
     }
+    
   }
   .cases-block {
     width: 80%;
@@ -229,13 +237,17 @@ footer {
     .footer-center {
         text-align:center;
     }
-    .ul-footer {
-      padding: 0 !important;
+    .footer-block ul{
+      padding-left: 17px !important;
+    }
+    .image {
+      background-size: 272%;
+      background-position: 53%;
     }
 }
 
 @media only screen and (max-width: 888px) {
-
+    
 .footer-block-logo {
   width:50% !important;
 }
@@ -244,15 +256,32 @@ footer {
  }
 }
 
+
 @media only screen and (max-width: 360px) {
    .footer-logo {
     background-size:100%;
    }
-   .floating-text img{
-    width:200px;
-    height:132px;
+   .floating-text img {
+     width: 270px !important;
+     height: 120px;
+   }
+   .image {
+    background-size: 292%;
+  }
+  .floating-text {
+    font-size: 27px;
+  }
+  .description-block ul {
+    padding-left: 4px;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .image {
+    height: 547px;
+ }
+}
+
 
 mat-card {
   min-height: 317px !important;
@@ -263,51 +292,5 @@ mat-card {
 }
 
 .center {
-  text-align:center;
-}
-
-.centered-info {
-   width: 98% !important;
-   }
-
-
-@media only screen and (max-width: 1407px) {
-   .information-block {
-   width: 200px !important;
-   }
-}
-
-@media only screen and (max-width: 1173px) {
-   .centered-info {
-      width: 88% !important;
-    }
-   .information-block {
-   width: 240px !important;
-   }
-}
-
-
-@media only screen and (max-width: 893px) {
-   .centered-info {
-    width: 98% !important;
-   }
-   .information-block {
-   width: 200px !important;
-   }
-}
-
-@media only screen and (max-width: 434px) {
-   .centered-info {
-      margin-bottom:30px !important;
-   }
-}
-
-@media screen and (max-width: 500px) {
-  .centered-info {
-    width: auto;
-  }
-}
-
-.floating-text span {
-  font-size:42px;
+  text-align: center !important;
 }

@@ -6,7 +6,7 @@ import {Environment} from '../common/environment';
 import { CookieService } from 'ngx-cookie';
 import {RequestStatus} from '../common/request.status.enum';
 
-@Injectable()
+@Injectable() 
 export class AdminUserService {
 
   constructor(private environment: Environment, private http: HttpClient, private cookies: CookieService) { }

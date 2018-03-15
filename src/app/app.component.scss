@@ -13,19 +13,7 @@ footer {
   width: 92px !important;
 }
 
-.header-login {
-	width:93%;
- 	text-align:right;
-}
-
-
-@media screen and (max-width: 500px) {
-  .header-login a {
-    margin:0 -17px !important;
-    font-size:12px;
-  }
-}
-
-@media screen and (max-width: 390px) {
-  
+.header-rigth {
+  width: 90%;
+  text-align: right;
 }

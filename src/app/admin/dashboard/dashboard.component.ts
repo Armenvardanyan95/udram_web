@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/pluck';
-import * as FileSaver from 'file-saver'
+import * as FileSaver from 'file-saver';
 import { AdminUserService } from '../admin-user-service.service';
 import { LazyLoadEvent } from 'primeng/primeng';
 import { RequestStatus } from '../../common/request.status.enum';
@@ -51,9 +51,8 @@ export class DashboardComponent implements OnInit {
     this.isDialogVisible = true;
     this.selectedUser = user;
   }
-
+  
   downloadPDF(): void {
     this.backend.getPDF(this.selectedUser._id).subscribe(pdf => FileSaver.saveAs(pdf.fileBlob, `${pdf.fileName}.pdf`));
   }
-
 }
