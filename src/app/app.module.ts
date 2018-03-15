@@ -21,6 +21,7 @@ import { IdentificationComponent } from './pages/registration/identification/ide
 import { AdditionalComponent } from './pages/registration/additional/additional.component';
 import { RequestComponent } from './pages/registration/request/request.component';
 import { TermsComponent } from './pages/registration/terms/terms.component';
+import { ContactsDialogComponent } from './components/contacts-dialog/contacts-dialog.component';
 
 import { UserService } from './common/user.service';
 import { StoreService } from './common/store.service';
@@ -71,7 +72,8 @@ const routes: Routes = [
     ErrorComponent,
     PageNotFoundComponent,
     FilesComponent,
-    TermsAndConditionsPageComponent
+    TermsAndConditionsPageComponent,
+    ContactsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +99,7 @@ const routes: Routes = [
     CookieModule.forRoot()
   ],
   providers: [{provide: Environment, useValue: environment}, UserService, StoreService, AuthGuard, CurrentUserResolverService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ContactsDialogComponent]
 })
 export class AppModule { }
