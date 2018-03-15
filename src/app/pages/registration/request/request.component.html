@@ -23,23 +23,36 @@
 </mat-form-field>
 
 <div>
-  <span>Գրանցված աշխատող ե՞ք</span>
-  <mat-checkbox [formControl]="form.controls['isEmployed']"></mat-checkbox>
+  <span>Գրանցված աշխատող ե՞ք  <span style="color: red">*</span></span>
+  <mat-radio-group [formControl]="form.controls['isEmployed']">
+    <mat-radio-button [value]="true">Այո</mat-radio-button>
+    <mat-radio-button [value]="false">Ոչ</mat-radio-button>
+  </mat-radio-group>
 </div>
 
 <div>
-  <span>Ունե՞ք վարկային պատմություն</span>
-  <mat-checkbox [formControl]="form.controls['hasHistory']"></mat-checkbox>
+  <span>Ունե՞ք վարկային պատմություն <span style="color: red">*</span></span>
+  <mat-radio-group [formControl]="form.controls['hasHistory']">
+    <mat-radio-button [value]="true">Այո</mat-radio-button>
+    <mat-radio-button [value]="false">Ոչ</mat-radio-button>
+  </mat-radio-group>
 </div>
 
 <div>
   <span>Ծանրաբեռնված ե՞ք վարկերով</span>
-  <mat-checkbox [formControl]="form.controls['isDifficult']"></mat-checkbox>
+  <mat-radio-group [formControl]="form.controls['isDifficult']">
+    <mat-radio-button [value]="true">Այո</mat-radio-button>
+    <mat-radio-button [value]="false">Ոչ</mat-radio-button>
+  </mat-radio-group>
 </div>
 
 <mat-form-field>
   <textarea matInput placeholder="Նկարագրեք Ձեր վարկային պատմությունը" matTextareaAutosize matAutosizeMinRows="10"
             matAutosizeMaxRows="10" [formControl]="form.controls['description']"></textarea>
+
+  <mat-error *ngIf="form.controls['description'].hasError('minlength') || form.controls['description'].hasError('required')">
+    <strong>Պարտադիր</strong> է լրացնել աոնվազն 10 սիմվոլ, եթե նշված է, որ ունեք վարկային պատմություն
+  </mat-error>
 </mat-form-field>
 
 

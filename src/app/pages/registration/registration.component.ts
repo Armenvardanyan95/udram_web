@@ -68,9 +68,9 @@ export class RegistrationComponent implements OnInit {
         amount: ['', Validators.required],
         description: [''],
         mobilePhone: ['', Validators.required],
-        isEmployed: [false],
-        hasHistory: [false],
-        isDifficult: [false]
+        isEmployed: [null, Validators.required],
+        hasHistory: [null, Validators.required],
+        isDifficult: [null, Validators.required]
       }),
       hasAgreedToTerms: ['', Validators.requiredTrue]
     });

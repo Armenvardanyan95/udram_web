@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 
 import { ErrorMatcher } from '../../../common/error-matcher';
 
@@ -17,6 +17,16 @@ export class RequestComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.form.controls['hasHistory'].valueChanges.subscribe(value => this.switchValidation(value))
   }
 
+  private switchValidation(hasHistory: boolean): void {
+    if (hasHistory) {
+      this.form.controls['description'].setValidators([Validators.required, Validators.minLength(10)]);
+      this.form.controls['description'].updateValueAndValidity();
+    } else {
+      this.form.controls['description'].clearValidators();
+      this.form.controls['description'].updateValueAndValidity();
+    }
+  }
 }
