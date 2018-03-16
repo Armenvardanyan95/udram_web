@@ -83,7 +83,7 @@
   <br>
   <div class="additional">
 
-    <span *ngIf="selectedUser.additional.province">{{ provinces[selectedUser.additional.province - 1].name }}</span><br>
+    <span *ngIf="selectedUser.additional.province && selectedUser.additional.province != '0'">{{ provinces[selectedUser.additional.province - 1].name }}</span><br>
     <span> {{ selectedUser.additional.city }} </span><br>
     <span>{{ selectedUser.additional.address }}</span><br>
     <span>{{ selectedUser.additional.other }}</span><br>
@@ -91,14 +91,7 @@
   </div>
   <br>
   <div class="files">
-    <a [href]="environment.apiUrl + selectedUser.passportScan" *ngIf="selectedUser.passportScan"
-       [download]="'passport(' + selectedUser.auth.email + ')'">
-      Անձնագրի պատճեն
-    </a>
-    <a [href]="environment.apiUrl + selectedUser.acraScan" *ngIf="selectedUser.acraScan"
-       [download]="'acra(' + selectedUser.auth.email + ')'">
-      ԱՔՐԱ պատճեն
-    </a>
+    <button pButton label="Ներբեռնել PDF" (click)="downloadPDF()"></button>
   </div>
 
 </p-dialog>
