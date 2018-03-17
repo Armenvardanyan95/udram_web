@@ -89,6 +89,11 @@
     <span>{{ selectedUser.additional.other }}</span><br>
 
   </div>
+
+  <div class="request">
+    <span>Ցանկալի գումար՝ {{ selectedUser.request.amount }}</span>
+    <p>{{ selectedUser.request.description }}</p>
+  </div>
   <br>
   <div class="files">
     <button pButton label="Ներբեռնել PDF" (click)="downloadPDF()"></button>
