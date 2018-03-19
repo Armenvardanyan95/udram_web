@@ -51,19 +51,11 @@
 
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="passportIssuedDatePicker" placeholder="Տրման ամսաթիվ"
-           [formControl]="form.controls['passport'].controls['dateOfIssue']" readonly (click)="passportIssuedDatePicker.open()">
-    <mat-datepicker-toggle matSuffix [for]="passportIssuedDatePicker"></mat-datepicker-toggle>
-    <mat-datepicker #passportIssuedDatePicker [startAt]="startDate"></mat-datepicker>
-  </mat-form-field>
+  <app-date-selector [formControl]="form.controls['passport'].controls['dateOfIssue']" placeholder="Տրման ամսաթիվ"
+                     [startYear]="1990" [endYear]="currentYear"></app-date-selector>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="passportValidityDatePicker" placeholder="Վավերական է մինչև"
-           [formControl]="form.controls['passport'].controls['validityDate']" readonly (click)="passportValidityDatePicker.open()">
-    <mat-datepicker-toggle matSuffix [for]="passportValidityDatePicker"></mat-datepicker-toggle>
-    <mat-datepicker #passportValidityDatePicker [startAt]="startDate"></mat-datepicker>
-  </mat-form-field>
+  <app-date-selector [formControl]="form.controls['passport'].controls['validityDate']" placeholder="Վավերական է մինչև"
+                     [startYear]="currentYear" [endYear]="currentYear + 20"></app-date-selector>
 
 </ng-container>
 
@@ -111,18 +103,10 @@
 
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="idCardIssuedDatePicker" placeholder="Տրման ամսաթիվ"
-           [formControl]="form.controls['idCard'].controls['dateOfIssue']" readonly (click)="idCardIssuedDatePicker.open()">
-    <mat-datepicker-toggle matSuffix [for]="idCardIssuedDatePicker"></mat-datepicker-toggle>
-    <mat-datepicker #idCardIssuedDatePicker [startAt]="startDate"></mat-datepicker>
-  </mat-form-field>
+  <app-date-selector [formControl]="form.controls['idCard'].controls['dateOfIssue']" placeholder="Տրման ամսաթիվ"
+                     [startYear]="1990" [endYear]="currentYear"></app-date-selector>
 
-  <mat-form-field>
-    <input matInput [matDatepicker]="idCardValidityDatePicker" placeholder="Վավերական է մինչև"
-           [formControl]="form.controls['idCard'].controls['validityDate']" readonly (click)="idCardValidityDatePicker.open()">
-    <mat-datepicker-toggle matSuffix [for]="idCardValidityDatePicker"></mat-datepicker-toggle>
-    <mat-datepicker #idCardValidityDatePicker [startAt]="startDate"></mat-datepicker>
-  </mat-form-field>
+  <app-date-selector [formControl]="form.controls['idCard'].controls['validityDate']" placeholder="Վավերական է մինչև"
+                     [startYear]="currentYear" [endYear]="currentYear + 20"></app-date-selector>
 
 </ng-container>

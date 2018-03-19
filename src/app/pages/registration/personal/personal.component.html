@@ -22,12 +22,7 @@
 
 </mat-form-field>
 
-<mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Ծննդյան ամսաթիվ"
-         [formControl]="form.controls['dateOfBirth']" readonly (click)="picker.open()">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
-</mat-form-field>
+<app-date-selector [formControl]="form.controls['dateOfBirth']" placeholder="Ծննդյան Տարեթիվ"></app-date-selector>
 
 <mat-form-field>
   <input matInput placeholder="Սոցիալական քարտի համար" #ssn [formControl]="form.controls['ssn']"

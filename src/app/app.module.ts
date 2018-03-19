@@ -37,6 +37,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { FilesComponent } from './pages/registration/files/files.component';
 import { TermsAndConditionsPageComponent } from './pages/terms-and-conditions-page/terms-and-conditions-page.component';
+import { DateSelectorComponent } from './components/date-selector/date-selector.component';
 
 
 const routes: Routes = [
@@ -73,7 +74,8 @@ const routes: Routes = [
     PageNotFoundComponent,
     FilesComponent,
     TermsAndConditionsPageComponent,
-    ContactsDialogComponent
+    ContactsDialogComponent,
+    DateSelectorComponent
   ],
   imports: [
     BrowserModule,

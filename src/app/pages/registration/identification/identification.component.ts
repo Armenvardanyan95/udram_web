@@ -18,6 +18,7 @@ export class IdentificationComponent implements OnInit {
   public identificationType: IdentificationType = IdentificationType.Passport;
   public startDate: Date = new Date();
   public matcher = new ErrorMatcher();
+  public currentYear = new Date().getFullYear();
 
   constructor() { }
 

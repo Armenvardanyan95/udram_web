@@ -1,0 +1,27 @@
+<div [formGroup]="form">
+  <label>{{ placeholder }}</label>
+  <br/>
+  <mat-form-field>
+    <mat-select placeholder="Տարեթիվ" formControlName="year">
+      <mat-option *ngFor="let year of years" [value]="year">
+        {{ year }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Ամիս" formControlName="month">
+      <mat-option *ngFor="let month of months" [value]="month.value">
+        {{ month.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Օր" formControlName="day">
+      <mat-option *ngFor="let day of days" [value]="day">
+        {{ day + 1 }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
